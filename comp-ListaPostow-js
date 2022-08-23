@@ -1,0 +1,22 @@
+import React, { Component } from "react";
+
+class ListaPostow extends Component{
+
+    render(){
+        return(
+            
+            <div>
+
+
+
+
+
+            </div>
+
+        )
+    }
+
+
+}
+
+export default ListaPostow;
