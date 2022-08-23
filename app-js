@@ -1,0 +1,62 @@
+//zawsze zaczynasz od tego
+import React, { Component } from "react";
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import DodajPost from "./components/DodajPost";
+import UsunPost from "./components/UsunPost";
+import EdytujPost from "./components/EdytujPost";
+import ListaPostow from "./components/ListaPostow";
+
+
+class App extends Component {
+
+  render(){
+
+    return(
+
+      //definiujesz co ma byc w szablonie html live
+      
+      // musisz tu dac div jako glowny wrapper to jest require
+
+        <div>
+        
+            <h1>Blog eHalluksa</h1>
+
+            <form action="/dodajPost" method="post">
+
+              <p>
+                  <label>Tytuł:</label>
+                  <input type="text" name="tytul" />
+              </p>
+              <p>
+                  <label>Tresc:</label>
+                  <textarea name="tresc"></textarea>
+              </p>
+              <p>
+                  <button type="submit">Dodaj nowy wpis</button>
+              </p>
+
+            </form>
+
+            {/* tutaj musuisz zdefiniowac sciezki do komponentu ktore potem sa odpalane */}
+
+            <BrowserRouter>
+              
+              <Switch>
+
+                <Route exact path="/" component={ListaPostow} />
+                <Route path="./dodaj" component={DodajPost} />
+                <Route path="./usun/:id" component={UsunPost} />
+                <Route path="./edytuj/:id" component={EdytujPost} />
+                
+              </Switch>
+
+
+            </BrowserRouter>
+
+        
+        </div>
+    )
+  }
+}
+
+export default App;
